@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+<h1>Welcome to my page</h1>
+<img src="/static/images/profile_pic.png" width="100" height="120">
+<p>Thank you for considering me as a Data Scientist.</p> <p>I think it's import to show my future employer that I have some coding skills that go beyond <a href="https://www.kaggle.com/jessemetzger">Kaggle</a> competitions.</p>
+<p>This site was built on <a href="https://developer.mozilla.org/ru/docs/Learn/Server-side/Django">Django</a> and is hosted on <a href="https://www.pythonanywhere.com/">pythonanywhere</a>.</p><br></br>
+<ul>
+    <li>On <a href="{% url 'linear_default' %}">Linear</a> you can play with linear a regression model</li><br></br>
+    <li>On <a href="{% url 'view_blank_map' %}">World Indices</a> you can see how the global markets performed today</li><br></br>
+    <li>On <a href="{% url 'info' %}">Info</a> you can learn more about me</li><br></br>
+</ul>
+{% endblock content %}
+

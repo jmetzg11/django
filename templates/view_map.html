@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+    {%  if blank  %}
+    <h2>How were the stock markets today?</h2>
+    <p>The Update button will scrap data from various sites. Typically it takes less than 10 seconds to complete.</p>
+
+    <form method="post" enctype="multipart/form-data" action="view_filled_map">
+    {% csrf_token %}
+    <input type="submit" value="Update" >
+    <img src="data:image/png;base64,  {{blank|safe}}">
+    {% else %}
+    <h2>This data was scrapped with Beautiful Soup from 3 different sites</h2>
+    <p>Data Sources: <a href="https://www.marketwatch.com/">marketatch.com</a>,
+    <a href="https://markets.businessinsider.com/">markets.buinessinsider.com</a>,
+    and <a href="https://finance.yahoo.com/">finance.yahoo.com</a></p>
+    <img src="data:image/png;base64,  {{filled|safe}}">
+    {% endif %}
+
+
+{% endblock content %}

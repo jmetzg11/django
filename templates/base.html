@@ -1,0 +1,26 @@
+<html>
+<head>
+
+<title>Jesse's Site</title>
+
+</head>
+<style>
+    h1 {font-family: Georgia;}
+    body {font-family: Arial, Helvetica, sans-serif;}
+</style>
+
+<h1>
+  <a href="{% url 'home' %}">Home</a> |
+  <a href="{% url 'linear_default' %}">Linear</a> |
+  <a href="{% url 'view_blank_map' %}">World Indices</a> |
+  <a href="{% url 'info' %}">Info</a>
+</h1>
+
+
+<body>
+{% block content %}
+
+{% endblock content %}
+</body>
+
+</html>

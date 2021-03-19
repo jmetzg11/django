@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>What will be the miles per gallon for a car with certain features?</h2>
+
+<h3>Enter the data to find out</h3>
+
+{%  if prediction  %}
+<form method="post" enctype="multipart/form-data" action="linear_predict">
+{% else %}
+<form method="post" enctype="multipart/form-data" action="linear_predict">
+{% endif %}
+
+{% csrf_token %}
+ <div><label>displacement:</label></div><input type="text" name="disVal"  value={{features.displacement}}><br><br>
+ <div><label>horsepower:</label></div><input type="text" name="hrsVal" value={{features.horsepower}}><br><br>
+ <div><label>weight:</label></div><input type="text" name="weiVal"  value={{features.weight}}><br><br>
+
+{%  if prediction  %}
+<h3>Prediction is {{prediction}}</h3>
+<input type="submit" value="Submit" ></div>
+{% else%}
+<input type="submit" value="Submit" ></div>
+{% endif %}
+
+<p>The data set can be found <a href="https://www.kaggle.com/uciml/autompg-dataset">here</a>.</p>
+<p>The model is a simple linear regression with L1 regularization that was trained with
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html">sklearn</a>.</p>
+<p>The training of the model can be seen <a href="https://www.kaggle.com/jessemetzger/linear-model-for-django">here</a> and looks like:</p>
+<p>mpg= 44.93 + (-0.0068 x displacement) + (-0.035 x horsepower) + (-0.006 x weight)</p>
+
+{% endblock content %}weight
